@@ -4,13 +4,14 @@
 
 Name: aml
 Version: 0.3.0
-Release: 1
+Release: 2
 Source0: https://github.com/any1/aml/archive/refs/tags/v%{version}.tar.gz
 Summary: Event loop handling library developed for Wayland VNC servers
-URL: https://github.com/aml/aml
+URL: https://github.com/any1/aml
 License: ISC
 Group: System/Libraries
-BuildRequires: meson ninja
+BuildRequires: meson
+BuildRequires: ninja
 
 %description
 AML (Another Main Loop) is an event loop handling library developed for
@@ -20,11 +21,11 @@ Goals:
  * Portability
  * Utility
  * Simplicity
- 
+
 Non-goals:
  * MS Windows (TM) support
  * Solving the C10K problem
- 
+
 Features:
  * File descriptor event handlers
  * Timers
@@ -39,26 +40,7 @@ Summary: Event loop handling library developed for Wayland VNC servers
 Group: System/Libraries
 
 %description -n %{libname}
-AML (Another Main Loop) is an event loop handling library developed for
-Wayland VNC servers.
-
-Goals:
- * Portability
- * Utility
- * Simplicity
- 
-Non-goals:
- * MS Windows (TM) support
- * Solving the C10K problem
- 
-Features:
- * File descriptor event handlers
- * Timers
- * Tickers
- * Signal handlers
- * Idle dispatch callbacks
- * Thread pool
- * Interoperability with other event loops
+%{description}
 
 %package -n %{devname}
 Summary: Development files for %{name}
@@ -67,27 +49,6 @@ Requires: %{libname} = %{EVRD}
 
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
-
-AML (Another Main Loop) is an event loop handling library developed for
-Wayland VNC servers.
-
-Goals:
- * Portability
- * Utility
- * Simplicity
- 
-Non-goals:
- * MS Windows (TM) support
- * Solving the C10K problem
- 
-Features:
- * File descriptor event handlers
- * Timers
- * Tickers
- * Signal handlers
- * Idle dispatch callbacks
- * Thread pool
- * Interoperability with other event loops
 
 %prep
 %autosetup -p1
