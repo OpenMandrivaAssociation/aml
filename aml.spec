@@ -3,8 +3,8 @@
 %define devname %mklibname aml -d
 
 Name: aml
-Version: 0.3.0
-Release: 2
+Version: 1.0.0
+Release: 1
 Source0: https://github.com/any1/aml/archive/refs/tags/v%{version}.tar.gz
 Summary: Event loop handling library developed for Wayland VNC servers
 URL: https://github.com/any1/aml
