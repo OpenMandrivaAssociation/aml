@@ -1,17 +1,17 @@
-%define major 0
-%define libname %mklibname aml
+%define major 1
+%define libname %mklibname aml %{major}
 %define devname %mklibname aml -d
 
-Name: aml
-Version: 1.0.0
-Release: 1
-Source0: https://github.com/any1/aml/archive/refs/tags/v%{version}.tar.gz
-Summary: Event loop handling library developed for Wayland VNC servers
-URL: https://github.com/any1/aml
-License: ISC
-Group: System/Libraries
-BuildRequires: meson
-BuildRequires: ninja
+Name:		aml
+Version:	1.0.0
+Release:	1
+Source0:	https://github.com/any1/aml/archive/refs/tags/v%{version}.tar.gz
+Summary:	Event loop handling library developed for Wayland VNC servers
+URL:		https://github.com/any1/aml
+License:	ISC
+Group:		System/Libraries
+BuildRequires:	meson
+BuildRequires:	ninja
 
 %description
 AML (Another Main Loop) is an event loop handling library developed for
@@ -36,19 +36,21 @@ Features:
  * Interoperability with other event loops
 
 %package -n %{libname}
-Summary: Event loop handling library developed for Wayland VNC servers
-Group: System/Libraries
+Summary:	Event loop handling library developed for Wayland VNC servers
+Group:		System/Libraries
 
 %description -n %{libname}
 %{description}
 
 %package -n %{devname}
-Summary: Development files for %{name}
-Group: Development/C
-Requires: %{libname} = %{EVRD}
+Summary:	Development files for %{name}
+Group:		Development/C
+Requires:	%{libname} = %{EVRD}
 
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
+
+1.0 installs headers under aml1/ and the pkgconfig file as aml1.pc.
 
 %prep
 %autosetup -p1
@@ -61,9 +63,10 @@ Development files (Headers etc.) for %{name}.
 %ninja_install -C build
 
 %files -n %{libname}
-%{_libdir}/*.so.%{major}*
+%license COPYING
+%{_libdir}/libaml.so.%{major}*
 
 %files -n %{devname}
-%{_includedir}/*
-%{_libdir}/*.so
-%{_libdir}/pkgconfig/*
+%{_includedir}/aml1/
+%{_libdir}/libaml.so
+%{_libdir}/pkgconfig/aml1.pc
